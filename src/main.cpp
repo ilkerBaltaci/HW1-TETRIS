@@ -7,6 +7,7 @@
 #include "TetrominoFactory.h"
 #include "Tetro_Z.h"
 #include <sstream>
+#include <curses.h>
 
 using namespace std;
 
@@ -21,12 +22,19 @@ int main() {
 
     //tetro_Z.print();
     
-    stringstream my_stream(ios::in|ios::out);
-    my_stream.precision(10);
-    my_stream << "sdada";
-
-    cout << my_stream.str();
-
+    initscr();			/* Start curses mode 		  */
+	//printw("Hello World !!!");	/* Print Hello World		  */
+    wmove(stdscr, 0, 1);
+    printw("T");
+    wmove(stdscr, 0, 2);
+    printw("T");
+    wmove(stdscr, 1, 2);
+    printw("T");
+    wmove(stdscr, 2, 2);
+    printw("T");
+	refresh();			/* Print it on to the real screen */
+	getch();			/* Wait for user input */
+	endwin();			/* End curses mode		  */
 
 
     return 0;

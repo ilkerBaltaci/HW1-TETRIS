@@ -25,5 +25,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/src/Tetromino
     ${CMAKE_SOURCE_DIR}/src/Enums
     ${CMAKE_SOURCE_DIR}/src/Utils
+    /usr/include
 )
 
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    ncurses
+)
