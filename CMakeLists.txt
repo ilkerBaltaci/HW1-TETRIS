@@ -18,6 +18,7 @@ add_executable(${PROJECT_NAME}
     src/Tetromino/TetrominoFactory.cpp
     src/Utils/Conversions.cpp
     src/Utils/Coordinate.cpp
+    src/Utils/PrintHandler.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

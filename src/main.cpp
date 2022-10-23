@@ -22,20 +22,21 @@ int main() {
 
     //tetro_Z.print();
     
-    initscr();			/* Start curses mode 		  */
-	//printw("Hello World !!!");	/* Print Hello World		  */
-    wmove(stdscr, 0, 1);
-    printw("T");
-    wmove(stdscr, 0, 2);
-    printw("T");
-    wmove(stdscr, 1, 2);
-    printw("T");
-    wmove(stdscr, 2, 2);
-    printw("T");
-	refresh();			/* Print it on to the real screen */
-	getch();			/* Wait for user input */
-	endwin();			/* End curses mode		  */
+    // initscr();			/* Start curses mode 		  */
+	// //printw("Hello World !!!");	/* Print Hello World		  */
+    // wmove(stdscr, 0, 1);
+    // printw("T");
+    // wmove(stdscr, 0, 2);
+    // printw("T");
+    // wmove(stdscr, 1, 2);
+    // printw("T");
+    // wmove(stdscr, 2, 2);
+    // printw("T");
+	// refresh();			/* Print it on to the real screen */
+	// getch();			/* Wait for user input */
+	// endwin();			/* End curses mode		  */
 
-
+    Tetro_Z tetro_Z;
+    tetro_Z.print();
     return 0;
 }

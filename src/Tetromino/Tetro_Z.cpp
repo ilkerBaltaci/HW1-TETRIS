@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include "PrintHandler.h"
 
 Tetro_Z::Tetro_Z() : Tetromino(TetroOptions::Z) {
     std::cout << "Tetro_Z Constructor has been called!" << std::endl;
@@ -14,12 +15,7 @@ int Tetro_Z::rotate(RotateOptions rotateOption){
 };
 
 void Tetro_Z::print() {
-    for(Coordinate coordinate : this->coordinates){
-        int x = coordinate.getX();
-        int y = coordinate.getY();
-        string symbol = coordinate.getSymbol();
-        
-    }
+    PrintHandler::printCoordinates(this->coordinates);
     std::cout << "Tetro_Z print function has been called." << std::endl;
 };
 

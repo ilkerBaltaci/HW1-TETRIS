@@ -11,7 +11,7 @@ class Tetro_Z : public Tetromino {
 
 public:
 
-    vector<Coordinate> coordinates = {Coordinate(0,1,"Z"), Coordinate(1,1,"Z"), Coordinate(1,0,"Z"), Coordinate(2,0,"Z")};
+    vector<Coordinate> coordinates = {Coordinate(0,0,"Z"), Coordinate(0,1,"Z"), Coordinate(1,1,"Z"), Coordinate(1,2,"Z")};
 
     Tetro_Z();
     int rotate(RotateOptions rotateOption);
