@@ -2,10 +2,12 @@
 
 Tetromino::Tetromino(TetroOptions tetroOption)
 {
-    std::cout << "Tetromino Constructor kısmına girdi." << std::endl;
+    this->tetroOption = tetroOption;
+    std::cout << "Tetromino Constructora girdi." << std::endl;
 }
 
 Tetromino::~Tetromino()
 {
-    std::cout << "Tetromino Destructor kısmına girdi." << std::endl;
+    //delete &this->tetroOption;
+    std::cout << "Tetromino Destructora girdi." << std::endl;
 }

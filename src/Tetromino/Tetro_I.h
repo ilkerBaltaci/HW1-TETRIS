@@ -3,12 +3,12 @@
 
 #include "Tetromino.h"
 
-class Tetro_I : Tetromino {
+class Tetro_I : public Tetromino {
 public:
     Tetro_I();
-    int rotate(RotateOptions rotateOption) override;
-    void print() override;
-    bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition) override;
+    int rotate(RotateOptions rotateOption);
+    void print();
+    bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition);
 };
 
 #endif

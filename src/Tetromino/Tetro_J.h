@@ -6,7 +6,7 @@
 #include <map>
 
 using namespace std;
-class Tetro_J : Tetromino
+class Tetro_J : public Tetromino
 {
 private:
     map<int, int> coordinateTOP = {{-1,0},{0,0},{1,0},{1,-1}};
@@ -16,9 +16,9 @@ private:
 public:
     
     Tetro_J();
-    int rotate(RotateOptions rotateOption) override;
-    void print() override;
-    bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition) override;
+    int rotate(RotateOptions rotateOption);
+    void print();
+    bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition);
 };
 
 #endif

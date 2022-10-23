@@ -3,13 +3,13 @@
 
 #include "Tetromino.h"
 
-class Tetro_T : Tetromino {
+class Tetro_T : public Tetromino {
 public:
     
     Tetro_T();
-    int rotate(RotateOptions rotateOption) override;
-    void print() override;
-    bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition) override;
+    int rotate(RotateOptions rotateOption);
+    void print();
+    bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition);
 };
 
 #endif

@@ -12,12 +12,13 @@ class Tetromino
 private:
     /* data */
 public:
+    TetroOptions tetroOption;
     Tetromino(TetroOptions tetroOption);
     ~Tetromino();
 
-    virtual int rotate(RotateOptions rotateOption);
-    virtual void print();
-    virtual bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition);
+    virtual int rotate(RotateOptions rotateOption){return 0;};
+    virtual void print(){};
+    virtual bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition){return false;};
 };
 
 #endif
