@@ -10,6 +10,7 @@ using namespace std;
 class PrintHandler {
 public:
     static void printCoordinates(vector<Coordinate> coordinates);
+    static string convertCoordinatesToStringBuf(vector<Coordinate> coordinates);
 };
 
 #endif

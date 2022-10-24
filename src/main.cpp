@@ -8,6 +8,7 @@
 #include "Tetro_Z.h"
 #include <sstream>
 #include <curses.h>
+#include "PrintHandler.h"
 
 using namespace std;
 
@@ -37,6 +38,10 @@ int main() {
 	// endwin();			/* End curses mode		  */
 
     Tetro_Z tetro_Z;
-    tetro_Z.print();
+    string result = PrintHandler::convertCoordinatesToStringBuf(tetro_Z.getCoordinates(RelativePosition::TOP));
+    
+    cout << endl << result << endl;
+
+
     return 0;
 }

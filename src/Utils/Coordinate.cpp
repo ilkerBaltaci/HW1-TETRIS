@@ -6,10 +6,10 @@ Coordinate::Coordinate(int x, int y, string symbol) {
     this->symbol = symbol;
 }
 
-int Coordinate::getX() {
+const int Coordinate::getX() {
     return this->x;
 }
-int Coordinate::getY() {
+const int Coordinate::getY() {
     return this->y;
 }
 string Coordinate::getSymbol() {
