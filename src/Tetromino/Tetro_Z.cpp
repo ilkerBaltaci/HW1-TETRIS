@@ -7,7 +7,7 @@
 using namespace std;
 
 Tetro_Z::Tetro_Z() : Tetromino(TetroOptions::Z) {
-    std::cout << "Tetro_Z Constructor has been called!" << std::endl;
+    //std::cout << "Tetro_Z Constructor has been called!" << std::endl;
 };
 
 int Tetro_Z::rotate(RotateOptions rotateOption){

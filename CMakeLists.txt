@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 
 set(PROJECT_NAME HW1-TETRIS)
 
-project(${PROJECT_NAME} VERSION 0.3)
+project(${PROJECT_NAME} VERSION 0.4)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp 
@@ -26,9 +26,4 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/src/Tetromino
     ${CMAKE_SOURCE_DIR}/src/Enums
     ${CMAKE_SOURCE_DIR}/src/Utils
-    /usr/include
-)
-
-target_link_libraries(${PROJECT_NAME} PUBLIC
-    ncurses
 )

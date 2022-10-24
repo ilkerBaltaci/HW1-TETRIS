@@ -45,6 +45,7 @@ int ProgramManager::askTetroTypes() {
 
     for(Tetromino* tetromino : this->tetrominos){
         tetromino->print();
+        cout << endl;
     }
 
 
