@@ -16,7 +16,7 @@ add_executable(${PROJECT_NAME}
     src/Tetromino/Tetro_Z.cpp
     src/Tetromino/Tetromino.cpp
     src/Tetromino/TetrominoFactory.cpp
-    src/Utils/Conversions.cpp
+    src/Utils/Util.cpp
     src/Utils/Coordinate.cpp
     src/Utils/PrintHandler.cpp
 )

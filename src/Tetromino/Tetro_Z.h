@@ -36,13 +36,17 @@ private:
 
     vector<Coordinate> coordinateLeft = coordinateRight;
 
-public:
     
 
+public:
+    
+    
     Tetro_Z();
     int rotate(RotateOptions rotateOption);
     void print();
     bool canFit(Tetromino otherTetromino, RelativePosition relativePosition);
+
+    bool setBestPosition(Tetromino *previousTetromino);
 
     vector<Coordinate> getCoordinates(RelativePosition relativePosition);
 

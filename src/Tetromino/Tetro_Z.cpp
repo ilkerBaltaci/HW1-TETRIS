@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include "PrintHandler.h"
+#include "Util.h"
 
 using namespace std;
 
 Tetro_Z::Tetro_Z() : Tetromino(TetroOptions::Z) {
     //std::cout << "Tetro_Z Constructor has been called!" << std::endl;
+    setEditedCoordinates(getCoordinates(this->currentPosition));
 };
 
 int Tetro_Z::rotate(RotateOptions rotateOption){
@@ -32,6 +34,19 @@ void Tetro_Z::print() {
 bool Tetro_Z::canFit(Tetromino otherTetromino, RelativePosition relativePosition) {
     return false;
 }
+bool Tetro_Z::setBestPosition(Tetromino *previousTetromino){
+    if(previousTetromino == nullptr) {
+        this->currentPosition = RelativePosition::LEFT;
+        setEditedCoordinates(getCoordinates(this->currentPosition));
+        return true;
+    }
+
+    vector<Coordinate> otherTetrominoCoordinates = previousTetromino->getEditedCoordinates();
+    vector<Coordinate> getCurrentTetroCoordinates = this->getCoordinates(RelativePosition::TOP);
+
+    return true;
+}
+
 
 vector<Coordinate> Tetro_Z::getCoordinates(RelativePosition relativePosition){
     if(relativePosition == RelativePosition::TOP){

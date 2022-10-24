@@ -51,3 +51,16 @@ int ProgramManager::askTetroTypes() {
 
     return 0;
 }
+
+void ProgramManager::performBestFitAndPrint() {
+    Tetromino* tmpTetro;
+    for(Tetromino* tetromino : this->tetrominos){
+        
+        tetromino->print();
+        cout << endl;
+    }
+}
+
+void ProgramManager::setBestPositionOfTetromino(Tetromino *previousTetromino, Tetromino *currentTetromino){
+    currentTetromino->setBestPosition(previousTetromino);
+}
