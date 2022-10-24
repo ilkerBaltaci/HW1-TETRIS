@@ -37,10 +37,27 @@ int main() {
 	// getch();			/* Wait for user input */
 	// endwin();			/* End curses mode		  */
 
+
     Tetro_Z tetro_Z;
-    string result = PrintHandler::convertCoordinatesToStringBuf(tetro_Z.getCoordinates(RelativePosition::TOP));
+    tetro_Z.print();
+
+    cout << endl;
+
+    tetro_Z.rotate(RotateOptions::LEFT);
+    tetro_Z.print();
+
+    cout << endl;
+
+    tetro_Z.rotate(RotateOptions::LEFT);
+    tetro_Z.print();
+    cout << endl;
+    tetro_Z.rotate(RotateOptions::LEFT);
+    tetro_Z.rotate(RotateOptions::RIGHT);
+    tetro_Z.print();
+
+    //string result = PrintHandler::convertCoordinatesToStringBuf(tetro_Z.getCoordinates(RelativePosition::TOP));
     
-    cout << endl << result << endl;
+    //cout << endl << result << endl;
 
 
     return 0;

@@ -2,24 +2,31 @@
 #include "TetroOptions.h"
 
 #include <iostream>
-#include <cstdio>
 #include "PrintHandler.h"
+
+using namespace std;
 
 Tetro_Z::Tetro_Z() : Tetromino(TetroOptions::Z) {
     std::cout << "Tetro_Z Constructor has been called!" << std::endl;
 };
 
 int Tetro_Z::rotate(RotateOptions rotateOption){
-    std::cout << "Tetro_Z rotate function has been called." << std::endl;
-    return 1;
+    if(rotateOption == RotateOptions::LEFT){
+        this->currentPosition  = static_cast<RelativePosition>((static_cast<int>(this->currentPosition) + 1) % 4);
+    } else {
+        this->currentPosition  = static_cast<RelativePosition>((static_cast<int>(this->currentPosition) - 1) % 4);
+    }
+
+    return 0;
 };
 
 void Tetro_Z::print() {
     vector<Coordinate> currentCoordinates = this->getCoordinates(this->currentPosition);
 
-    PrintHandler::printCoordinates(currentCoordinates);
+    string currenStrObject = PrintHandler::convertCoordinatesToStringBuf(currentCoordinates);
+    cout << currenStrObject << endl;
 
-    std::cout << "Tetro_Z print function has been called." << std::endl;
+    //std::cout << "Tetro_Z print function has been called." << std::endl;
 };
 
 bool Tetro_Z::canFit(Tetromino otherTetromino, RelativePosition relativePosition) {
