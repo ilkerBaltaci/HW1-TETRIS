@@ -3,6 +3,8 @@
 #include <iostream>
 #include <list>
 #include "TetrominoFactory.h"
+#include "Util.h"
+#include "PrintHandler.h"
 
 using namespace std;
 
@@ -53,14 +55,34 @@ int ProgramManager::askTetroTypes() {
 }
 
 void ProgramManager::performBestFitAndPrint() {
-    Tetromino* tmpTetro;
+    Tetromino* tmpTetro= {};
+    int index = 0;
     for(Tetromino* tetromino : this->tetrominos){
+        if(index == 0) {
+            tetromino->setBestPosition(nullptr);
+        } else {
+            tetromino->setBestPosition(tmpTetro);
+        }
         
-        tetromino->print();
-        cout << endl;
+        tmpTetro = tetromino;
+        index++;
     }
-}
 
-void ProgramManager::setBestPositionOfTetromino(Tetromino *previousTetromino, Tetromino *currentTetromino){
-    currentTetromino->setBestPosition(previousTetromino);
+    vector<Coordinate> allObjects;
+    index = 0;
+    for(Tetromino* tetromino : this->tetrominos){
+        vector<Coordinate> addedCoordinates;
+        if(index == 0){
+            allObjects = tetromino->getEditedCoordinates();
+            index++;
+            continue;
+        }
+        addedCoordinates = Util::concanateTwoBestFitObject(allObjects, tetromino->getEditedCoordinates());
+        allObjects = addedCoordinates;
+    }
+
+    string buffer = PrintHandler::convertCoordinatesToStringBuf(allObjects);
+
+    cout << "Horizotally best-fit tetrominos" << endl;
+    cout << buffer << endl;
 }

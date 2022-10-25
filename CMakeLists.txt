@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 
 set(PROJECT_NAME HW1-TETRIS)
 
-project(${PROJECT_NAME} VERSION 0.4)
+project(${PROJECT_NAME} VERSION 0.5)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp 
@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME}
     src/Utils/Util.cpp
     src/Utils/Coordinate.cpp
     src/Utils/PrintHandler.cpp
+    src/Utils/BestFitObject.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

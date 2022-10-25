@@ -8,8 +8,7 @@
 using namespace std;
 
 class ProgramManager {
-private:
-    void setBestPositionOfTetromino(Tetromino *previousTetromino, Tetromino *currentTetromino);
+
 public:
     vector<Coordinate> allTetrominoCoordinates;
     int numOfTetromino;

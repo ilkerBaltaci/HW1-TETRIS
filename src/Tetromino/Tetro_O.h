@@ -32,6 +32,8 @@ public:
     void print();
     bool canFit(Tetromino otherTetromino, RelativePosition RelativePosition);
 
+    bool setBestPosition(Tetromino *previousTetromino);
+
     vector<Coordinate> getCoordinates(RelativePosition relativePosition);
 
     void setEditedCoordinates(vector<Coordinate> editedCoordinates);

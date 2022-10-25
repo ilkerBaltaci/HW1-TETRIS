@@ -29,16 +29,18 @@ string PrintHandler::convertCoordinatesToStringBuf(vector<Coordinate> coordinate
             tempX++;
         }
         else if (tempX < ptr->getX()) {
-            for(tempX; tempX == ptr->getX(); tempX++){
+            for(tempX; tempX < ptr->getX(); tempX++){
                 bufOfCoordinates.append(" ");
             }
+            bufOfCoordinates.append(ptr->getSymbol());
+            tempX += 1;
         }
         
         // coordinatePairs.push_back({ptr->getX(), ptr->getY()});
     }
 
     // for(ptrPairs = coordinatePairs.begin(); ptrPairs < coordinatePairs.end(); ptrPairs++){
-    //     cout << ptrPairs->first << "," << ptrPairs->second << endl;
+    //      cout << ptrPairs->first << "," << ptrPairs->second << endl;
     // }
 
     return bufOfCoordinates;
