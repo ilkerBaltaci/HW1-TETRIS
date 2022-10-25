@@ -15,6 +15,8 @@ using namespace std;
 int main() {
     ProgramManager programManager;
 
+    programManager.printStartMenu();
+
     programManager.askHowManyTetro();
 
     programManager.askTetroTypes();

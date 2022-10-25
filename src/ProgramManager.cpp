@@ -16,6 +16,16 @@ ProgramManager::~ProgramManager(){
     }
 }
 
+void ProgramManager::printStartMenu() {
+    cout << "----- Welcome to Tetris best fit finder program! ------ " << endl << endl;
+    cout << "         OO   TTT   J    L    SS    ZZ " << endl
+         << "IIII     OO    T    J    L   SS      ZZ" << endl
+         << "                   JJ    LL            " << endl << endl;
+    
+    cout << "Tetro types should be selected in uppercase characters!!" << endl << endl;
+    cout << "Options : 'I' - 'O' - 'T' - 'J' - 'L' - 'S' - 'Z'" << endl << endl;
+}
+
 int ProgramManager::askHowManyTetro() {
     cout << "How many tetrominos?" << endl;
     int numOfTetrominos = 0;

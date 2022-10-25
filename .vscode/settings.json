@@ -49,6 +49,7 @@
         "xutility": "cpp",
         "sstream": "cpp",
         "functional": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "*.tcc": "cpp"
     }
 }

@@ -29,8 +29,8 @@ bool Util::checkIntersection(vector<Coordinate> otherTetrominoCoordinates, vecto
         for(Coordinate currentTetCoordinate : currentTetrominoCoordinates){
             if(otherCoordinate.getX() == currentTetCoordinate.getX() &&
                 otherCoordinate.getY() == currentTetCoordinate.getY() &&
-                !otherCoordinate.getSymbol()._Equal(" ") &&
-                !currentTetCoordinate.getSymbol()._Equal(" ")) 
+                otherCoordinate.getSymbol().compare(" ") != 0 &&
+                currentTetCoordinate.getSymbol().compare(" ") != 0) 
             {
                 return true;
             }
@@ -42,8 +42,8 @@ bool Util::checkIntersection(vector<Coordinate> otherTetrominoCoordinates, vecto
         for(Coordinate currentTetCoordinate : currentTetrominoCoordinates){
             if((otherCoordinate.getX() + 1) == currentTetCoordinate.getX() &&
                 otherCoordinate.getY() == currentTetCoordinate.getY() &&
-                !otherCoordinate.getSymbol()._Equal(" ") &&
-                !currentTetCoordinate.getSymbol()._Equal(" ")) 
+                otherCoordinate.getSymbol().compare(" ") != 0 &&
+                currentTetCoordinate.getSymbol().compare(" ") != 0) 
             {
                 isAdjacent = true;
             }
@@ -72,8 +72,8 @@ int Util::bestFitScore(vector<Coordinate> otherTetrominoCoordinates, vector<Coor
             //Yeni gelen parça bir boşluğu dolduruyorsa +2 puan
             if(otherCoordinate.getX() == currentTetCoordinate.getX() &&
                 otherCoordinate.getY() == currentTetCoordinate.getY() && 
-                otherCoordinate.getSymbol()._Equal(" ") &&
-                !currentTetCoordinate.getSymbol()._Equal(" ")
+                otherCoordinate.getSymbol().compare(" ") == 0 &&
+                currentTetCoordinate.getSymbol().compare(" ") != 0
             )
             {
                 bestFitScore += 6;
@@ -83,8 +83,8 @@ int Util::bestFitScore(vector<Coordinate> otherTetrominoCoordinates, vector<Coor
             //Yeni gelen parça eskisiyle bitişik ise +1 puan
             if((otherCoordinate.getX() + 1) == currentTetCoordinate.getX() &&
                 otherCoordinate.getY() == currentTetCoordinate.getY() &&
-                !otherCoordinate.getSymbol()._Equal(" ") &&
-                !currentTetCoordinate.getSymbol()._Equal(" ")
+                otherCoordinate.getSymbol().compare(" ") != 0 &&
+                currentTetCoordinate.getSymbol().compare(" ") != 0
             )
             {
                 bestFitScore += 4;
@@ -96,7 +96,7 @@ int Util::bestFitScore(vector<Coordinate> otherTetrominoCoordinates, vector<Coor
     // Yere değen parçalar +1 puan değerinde
     for(Coordinate currentTetCoordinate : currentTetrominoCoordinates){
         if(currentTetCoordinate.getY() == 0 &&
-            !currentTetCoordinate.getSymbol()._Equal(" ")
+            currentTetCoordinate.getSymbol().compare(" ") != 0
         ) 
         {
             bestFitScore += 1;
@@ -106,7 +106,7 @@ int Util::bestFitScore(vector<Coordinate> otherTetrominoCoordinates, vector<Coor
     vector<Coordinate> concanatedCoords = concanateTwoBestFitObject(otherTetrominoCoordinates, currentTetrominoCoordinates);
 
     for(Coordinate coor : concanatedCoords){
-        if(coor.getSymbol()._Equal(" ")){
+        if(coor.getSymbol().compare(" ") == 0){
             int allDirections = 0;
 
             if(coor.getX() == 0){
@@ -114,7 +114,7 @@ int Util::bestFitScore(vector<Coordinate> otherTetrominoCoordinates, vector<Coor
                 allDirections += 1;
             } else {
                 Coordinate bottomCoor =getCoordinate(concanatedCoords, coor.getX() - 1, coor.getY());
-                if(bottomCoor.getX() > 0 && !bottomCoor.getSymbol()._Equal(" ")) {
+                if(bottomCoor.getX() > 0 && bottomCoor.getSymbol().compare(" ") != 0) {
                     allDirections += 1;
                 }
             }
@@ -124,18 +124,18 @@ int Util::bestFitScore(vector<Coordinate> otherTetrominoCoordinates, vector<Coor
                 allDirections += 1;
             } else {
                 Coordinate leftCoor =getCoordinate(concanatedCoords, coor.getX(), coor.getY() - 1);
-                if(leftCoor.getY() > 0 && !leftCoor.getSymbol()._Equal(" ")) {
+                if(leftCoor.getY() > 0 && leftCoor.getSymbol().compare(" ") != 0) {
                     allDirections += 1;
                 }
             }
 
             Coordinate rightCoor = getCoordinate(concanatedCoords, coor.getX() + 1, coor.getY());
-            if(rightCoor.getX() > 0 && !rightCoor.getSymbol()._Equal(" ")) {
+            if(rightCoor.getX() > 0 && rightCoor.getSymbol().compare(" ") != 0) {
                 allDirections += 1;
             }
 
             Coordinate topCoor = getCoordinate(concanatedCoords, coor.getX(), coor.getY() + 1);
-            if(topCoor.getX() > 0 && !topCoor.getSymbol()._Equal(" ")) {
+            if(topCoor.getX() > 0 && topCoor.getSymbol().compare(" ") != 0) {
                 allDirections += 1;
             }
 
@@ -177,8 +177,8 @@ vector<Coordinate> Util::concanateTwoBestFitObject(vector<Coordinate> otherTetro
         for(currentTetCoorPtr = currentTetrominoCoordinates.begin(); currentTetCoorPtr < currentTetrominoCoordinates.end(); currentTetCoorPtr++){
             if(otherTetCoorPtr->getX() == currentTetCoorPtr->getX() &&
                 otherTetCoorPtr->getY() == currentTetCoorPtr->getY() &&
-                otherTetCoorPtr->getSymbol()._Equal(" ") &&
-                !currentTetCoorPtr->getSymbol()._Equal(" ")
+                otherTetCoorPtr->getSymbol().compare(" ") == 0 &&
+                currentTetCoorPtr->getSymbol().compare(" ") != 0
             )
             {
                 toBeDeletedOtherObjIndexes.push_back(temp1);
@@ -189,8 +189,8 @@ vector<Coordinate> Util::concanateTwoBestFitObject(vector<Coordinate> otherTetro
 
             if(otherTetCoorPtr->getX() == currentTetCoorPtr->getX() &&
                 otherTetCoorPtr->getY() == currentTetCoorPtr->getY() &&
-                !otherTetCoorPtr->getSymbol()._Equal(" ") &&
-                currentTetCoorPtr->getSymbol()._Equal(" ")
+                otherTetCoorPtr->getSymbol().compare(" ") != 0 &&
+                currentTetCoorPtr->getSymbol().compare(" ") == 0
             )
             {
                 toBeDeletedCurrentObjIndexes.push_back(temp2);

@@ -15,7 +15,7 @@ public:
     vector<Tetromino*> tetrominos;
 
     ~ProgramManager();
-
+    void printStartMenu();
     int askHowManyTetro();
     int askTetroTypes();
     void performBestFitAndPrint();
