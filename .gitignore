@@ -10,5 +10,7 @@ CTestTestfile.cmake
 _deps
 build/*
 bin/*
+build-Makefile/*
+.vscode
 *.o
 HW1-TETRIS

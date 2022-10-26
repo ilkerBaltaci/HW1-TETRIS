@@ -3,7 +3,7 @@
 CC = g++
 
 # define any compile-time flags
-CFLAGS = -Wall
+CFLAGS = -Wall -static
 
 # define any directories containing header files other than /usr/include
 INCLUDES = -I./src -I./src/Enums -I./src/Tetromino -I./src/Utils
@@ -43,11 +43,17 @@ OBJS = 	./main.o \
 
 #MAIN = HW1-TETRIS
 
-.PHONY: depend clean
+.PHONY: depend
 
 all:
+	mkdir -p bin
+	mkdir -p build-Makefile
 	${CC} ${CFLAGS} ${INCLUDES} -c ${SRCS}
 	${CC} ${CFLAGS} ${INCLUDES} -o HW1-TETRIS ${MAIN} ${OBJS}
+	cp *.o ./build-Makefile
+	cp HW1-TETRIS ./bin
+	rm *.o
+	rm HW1-TETRIS
 
 ${MAIN}:
 	${CC} ${CFLAGS} ${INCLUDES} -o HW1-TETRIS ${MAIN} ${OBJS}
@@ -56,7 +62,8 @@ ${MAIN}:
 	${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 
 clean:
-	${RM} *.o *~ ${MAIN}
+	rm -r bin
+	rm -r build-Makefile
 
 depend: ${SRCS}
 	makedepend ${INCLUDES} $^
