@@ -11,6 +11,6 @@ _deps
 build/*
 bin/*
 build-Makefile/*
-.vscode
+.vscode/*
 *.o
 HW1-TETRIS
